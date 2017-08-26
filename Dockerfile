@@ -10,7 +10,7 @@ USER root
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/* && \
     mkdir -p ${ACTIVEMQ_HOME}/hawtio && \
-    curl -SL https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war | tar -xvz -C ${$ACTIVEMQ_HOME}/hawtio && \
+    curl -SL https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war | tar -xvz -C ${ACTIVEMQ_HOME}/hawtio && \
     chown -hR activemq:activemq ${ACTIVEMQ_HOME}/hawtio
 
 EXPOSE 1883 5672 8161 61613 61614 61616
