@@ -10,12 +10,21 @@ Add:
  - HawtIO
 
 
-## Steps
-
+How to build Docker image
+-------------------------
 ```shell
-export HAWTIO_VERSION=1.5.3
-export ACTIVEMQ_VERSION=5.15.0
+docker build -t trifonnt/activemq-hawtio:5.15.0-1.5.3 .
+```
 
-curl -SL https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war -o /tmp/hawtio.war
-curl -SL https://www.apache.org/dist/activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz -o /tmp/activemq.bin.tar.gz
+How to push to Docker hub
+-------------------------
+```shell
+docker push trifonnt/activemq-hawtio:5.15.0-1.5.3
+```
+
+Usage
+-----
+Run ActiveMQ with default configuration:
+```shell
+docker run --name my-activemq-hawtio -d -P -p 8161:8161 trifonnt/activemq-hawtio:5.15.0-1.5.3
 ```
