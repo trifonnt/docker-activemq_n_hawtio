@@ -26,5 +26,5 @@ Usage
 -----
 Run ActiveMQ and HawtIO with default configuration:
 ```shell
-docker run --name my-activemq-hawtio -d -P -p 8162:8161 -v "${pwd}"/jetty.xml:/opt/activemq/conf/jetty.xml trifonnt/activemq-hawtio:5.15.0-1.5.3
+docker run --name my-activemq-hawtio -d -P -p 8162:8161 -v "${PWD}"/jetty.xml:/opt/activemq/conf/jetty.xml trifonnt/activemq-hawtio:5.15.0-1.5.3
 ```
