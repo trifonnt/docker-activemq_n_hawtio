@@ -1,12 +1,21 @@
-FROM jboss/base-jdk:8
+FROM trifonnt/alpine-activemq:5.15.0
 LABEL maintainer trifont@gmail.com
 
+ENV ACTIVEMQ_HOME /opt/activemq
+
 ENV HAWTIO_VERSION 1.5.3
-ENV ACTIVEMQ_VERSION 5.15.0
+ENV HAWTIO_WAR_PATH $ACTIVEMQ_HOME/hawtio/hawtio.war
 
 
-WORKDIR /tmp
-RUN \
-  curl -SL https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war -o /tmp/hawtio.war && \
-  curl -SL https://www.apache.org/dist/activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz -o /tmp/activemq.bin.tar.gz && \
-  
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/* && \
+    mkdir -p ${ACTIVEMQ_HOME}/hawtio && \
+    curl -SL https://oss.sonatype.org/content/repositories/public/io/hawt/hawtio-default-offline/${HAWTIO_VERSION}/hawtio-default-offline-${HAWTIO_VERSION}.war -o ${HAWTIO_WAR_PATH}  && \
+    chown -h activemq:activemq ${ACTIVEMQ_HOME}/hawtio
+
+EXPOSE 1883 5672 8161 61613 61614 61616
+
+USER activemq
+WORKDIR $ACTIVEMQ_HOME
+
+CMD ["/bin/sh", "-c", "bin/activemq console"]
