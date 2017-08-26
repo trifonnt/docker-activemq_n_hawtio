@@ -24,7 +24,7 @@ docker push trifonnt/activemq-hawtio:5.15.0-1.5.3
 
 Usage
 -----
-Run ActiveMQ with default configuration:
+Run ActiveMQ and HawtIO with default configuration:
 ```shell
-docker run --name my-activemq-hawtio -d -P -p 8161:8161 trifonnt/activemq-hawtio:5.15.0-1.5.3
+docker run --name my-activemq-hawtio -d -P -p 8162:8161 trifonnt/activemq-hawtio:5.15.0-1.5.3
 ```
