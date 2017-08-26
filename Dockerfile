@@ -6,7 +6,7 @@ ENV ACTIVEMQ_HOME /opt/activemq
 ENV HAWTIO_VERSION 1.5.3
 ENV HAWTIO_WAR_PATH $ACTIVEMQ_HOME/hawtio/hawtio.war
 
-
+USER root
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/* && \
     mkdir -p ${ACTIVEMQ_HOME}/hawtio && \
