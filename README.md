@@ -1,5 +1,4 @@
-   Plugging the HawtIO Monitoring Webapp into a Stand-Alone ActiveMQ Instance
- + https://dzone.com/articles/plugging-hawtio-monitoring
+[Plugging the HawtIO Monitoring Webapp into a Stand-Alone ActiveMQ Instance](https://dzone.com/articles/plugging-hawtio-monitoring)
 
 
 ## Idea
